@@ -25,8 +25,16 @@ function App() {
     //exchange rate is always from toAmount -> fromAmount
   }
 
+  function handleErrors(response) {
+    if (!response.ok) {
+      throw Error(response.statusText);
+    }
+    return response;
+  }
+
   useEffect(() => {
     fetch(BASE_URL)
+      .then(handleErrors)
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
@@ -37,13 +45,6 @@ function App() {
         setExchangeRate(data.rates[firstCurrency]);
       });
   }, []);
-
-  function handleErrors(response) {
-    if (!response.ok) {
-      throw Error(response.statusText);
-    }
-    return response;
-  }
 
   useEffect(() => {
     if (fromCurrency != null && toCurrency != null) {
