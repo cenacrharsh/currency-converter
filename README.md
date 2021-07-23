@@ -1,5 +1,5 @@
 <h1 align=center> Currency Converter </h1>
 
-## [DEMO]()
+## [DEMO](https://cenacrharsh.github.io/currency-converter-react-app/)
 
 ![ss](./ss.png)
